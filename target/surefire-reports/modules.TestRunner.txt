@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: modules.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 53.944 sec <<< FAILURE!
+log01 - Login successfully(Login)  Time elapsed: 12.154 sec  <<< FAILURE!
+java.lang.AssertionError
+	at step_definitions.StepDef_login.iMLogin(StepDef_login.java:53)
+	at ?.I'm login(file:///C:/Users/Pawk39/IdeaProjects/Automatisation-Playwright/src/test/java/features/login.feature:14)
+
+log04 - Logout(Login)  Time elapsed: 18.629 sec  <<< FAILURE!
+java.lang.AssertionError
+	at step_definitions.StepDef_login.iMLogout(StepDef_login.java:86)
+	at ?.I'm logout(file:///C:/Users/Pawk39/IdeaProjects/Automatisation-Playwright/src/test/java/features/login.feature:47)
+

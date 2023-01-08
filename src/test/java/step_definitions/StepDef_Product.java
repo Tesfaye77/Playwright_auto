@@ -23,11 +23,13 @@ public class StepDef_Product {
         page.navigate("https://ztrain-web.vercel.app/auth/login");
         product = new productPage(page);
         product.enterEmailandPassword(arg0,arg1);
+        product.saveScreen();
     }
 
     @And("I added to my bag")
     public void iAddedToMyBag() {
         product.addProduct();
+        product.saveScreen();
     }
 
 
@@ -35,5 +37,6 @@ public class StepDef_Product {
     public void iCanSeeTheMessage(String verify_except) {
         String verify_obtains = product.verifyaddproduct();
         Assert.assertEquals(verify_except,verify_obtains);
+        product.saveScreen();
     }
 }

@@ -29,17 +29,20 @@ public class StepDef_search {
     @When("I do a multiple keyword search for {string}")
     public void iDoAMultipleKeywordSearchFor(String terms) {
         search.Idoasearch(terms);
+        search.saveScreen();
     }
 
     @Then("I see a multiple keyword search result page")
     public void iSeeAMultipleKeywordSearchResultPage() {
+        Assert.assertTrue(search.ResultSearch());
+        search.saveScreen();
     }
-
 
     @Then("I see a message {string}")
     public void iSeeAMessage(String result_exc) {
         String true_result = search.getResultSearch();
         Assert.assertEquals(true_result,result_exc);
+        search.saveScreen();
     }
 
 }

@@ -15,6 +15,7 @@ public class loginPage {
     String emailUser = "id=email_login";
     String password = "id=password_login";
     String clickLogin = "id=btn_login";
+    String handleconfirmation = "id=style_content_logo__pkvMP";
     String confirmationLogin = "id=style_content_logo__pkvMP";
     String failedLogin = "text=Email ou mot de passe incorrect";
     String fail_email = "text=Le format de l'email est invalid";
@@ -41,12 +42,15 @@ public class loginPage {
         page.fill(password, pass);}
 
     public void clickLoginButton() {
-        page.click(clickLogin);}
+        page.click(clickLogin);
+        page.waitForTimeout(3000);
+        }
     public String getConfirmationLogin() {
 
-        return page.textContent(confirmationLogin);}
-    public String getFailedLogin() {
+        return page.textContent(confirmationLogin);
 
+    }
+    public String getFailedLogin() {
         return page.textContent(failedLogin);}
     public String getFail_email() {
 
@@ -56,8 +60,8 @@ public class loginPage {
         page.click(logout_bouton);}
 
     public void saveScreen() {
-
-         Allure.addAttachment("screenshot", new ByteArrayInputStream((page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("example.png"))))));
+         Allure.addAttachment("screenshot",
+                 new ByteArrayInputStream((page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("example.png"))))));
     }
 
 

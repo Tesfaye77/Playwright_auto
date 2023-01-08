@@ -19,14 +19,11 @@ public class Hooks {
     @Before
     public void setUp(){
 
-
     }
 
 
     @After
     public void TearsDown(){
-
-
     }
 
 

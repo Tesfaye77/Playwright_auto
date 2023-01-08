@@ -17,8 +17,8 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber"},
         features = {"src/test/java/features/"},
         glue = { "step_definitions",},
-        tags = "@log04",
-        name = {""}
+    tags = "@pdt01"
+//    name = {"reg01"}
 )
 
 public class TestRunner {

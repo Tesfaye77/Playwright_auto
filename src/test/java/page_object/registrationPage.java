@@ -1,6 +1,10 @@
 package page_object;
 
 import com.microsoft.playwright.Page;
+import io.qameta.allure.Allure;
+
+import java.io.ByteArrayInputStream;
+import java.nio.file.Paths;
 
 public class registrationPage {
 
@@ -14,7 +18,7 @@ public class registrationPage {
     String validationButton = "id=btn_register";
     String confirmationLogin = "id=style_content_logo__pkvMP";
     String failedRegister = "text=Les deux mots de passe ne sont pas identiques";
-
+    String failExisting = "text=Cet utilisateur existe déjà";
 
 
     // initialize Page using constructor
@@ -41,6 +45,13 @@ public class registrationPage {
         return page.textContent(confirmationLogin);}
     public String getFailedRegister() {
         return page.textContent(failedRegister);}
+    public String getFailedExisting() {
+        return page.textContent(failExisting);}
+    public void saveScreen() {
+        Allure.addAttachment("screenshot",
+                new ByteArrayInputStream((page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("example.png"))))));
+    }
+
 
 
 }

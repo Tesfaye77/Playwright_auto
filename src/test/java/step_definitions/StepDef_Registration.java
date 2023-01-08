@@ -23,6 +23,7 @@ public class StepDef_Registration {
     public void iMZtrainLoginPage() {
         page.navigate("https://ztrain-web.vercel.app/auth/login");
         registration = new registrationPage(page);
+        registration.saveScreen();
     }
     @When("I click on register button")
     public void iClickOnRegisterButton() {
@@ -34,11 +35,13 @@ public class StepDef_Registration {
         registration.enterEmailRegister(email);
         registration.enterPasswordRegister(password);
         registration.enterConfirmPassword(confirmpass);
+        registration.saveScreen();
     }
 
     @Then("I clicks validation button")
     public void iClicksValidationButton() {
         registration.clickValidationButton();
+        registration.saveScreen();
     }
 
 
@@ -46,11 +49,21 @@ public class StepDef_Registration {
     public void theUserIsConnected(String confirmationLogin) {
         String confirmation = registration.getConfirmationLogin();
         Assert.assertEquals(confirmation,confirmationLogin);
+        registration.saveScreen();
     }
 
     @Then("Access is denied  {string}")
     public void accessIsDenied(String failedRegister) {
         String failed = registration.getFailedRegister();
         Assert.assertEquals(failed,failedRegister);
+        registration.saveScreen();
+    }
+
+    @Then("the user is existing  {string}")
+    public void theUserIsExisting(String failExisting_expect) {
+        String fail_obtains = registration.getFailedExisting();
+        Assert.assertEquals(fail_obtains,failExisting_expect);
+        registration.saveScreen();
+
     }
 }
